@@ -15,7 +15,7 @@ def get_temperature():
     """
 
     url     = "http://www8.tfe.umu.se/WeatherWebService2012/Service.asmx/Temp"
-    content = requests.get(url).content.decode("utf-8")
+    content = requests.get(url).text
 
     root    = ET.fromstring(content)
 
@@ -53,7 +53,7 @@ def get_weather():
     """
 
     url     = "http://www8.tfe.umu.se/WeatherWebService2012/Service.asmx/Aktuellavarden"
-    content = requests.get(url).content.decode("utf-8")
+    content = requests.get(url).text
 
     root    = ET.fromstring(content)
     values  = ET.fromstring(root.text)
